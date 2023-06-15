@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:bibl"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid Background="PeachPuff">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox x:Name="dataTextBox" Width="200" Margin="0 0 0 10"/>
+            <Button Content="Сереализация/Десереализация" Width="200" Click="Button_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

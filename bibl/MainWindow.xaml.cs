@@ -1,21 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using System.IO;
-using System.Windows;
 using SerializationLibrary;
-
+using System;
 
 namespace bibl
 {
@@ -25,10 +11,17 @@ namespace bibl
         {
             InitializeComponent();
         }
+        class Tekst
+        {
+            public string Text { get; set; }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string data = dataTextBox.Text;
+            Tekst data = new Tekst
+            {
+                Text = dataTextBox.Text
+            };
             string filePath = "C:\\Users\\mrpor\\Desktop\\data.json";
 
             if (!File.Exists(filePath))
@@ -37,10 +30,26 @@ namespace bibl
             }
 
             SerializationHelper.Serialize(data, filePath);
-            MessageBox.Show("Данные сериализованы успешно в формате JSON!");
+            MessageBox.Show("Данные сериализованы");
 
-            string deserializedData = SerializationHelper.Deserialize<string>(filePath);
-            MessageBox.Show("Данные десериализованы из формата JSON: " + deserializedData);
+            Tekst deserializedData = SerializationHelper.Deserialize<Tekst>(filePath);
+            MessageBox.Show("Данные десериализованы: " + deserializedData.Text);
+        }
+
+
+        private void DarkThemeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var darkThemeResource = new ResourceDictionary();
+            darkThemeResource.Source = new Uri("pack://application:,,,/ControlLibrary;component/Themes/Dark.xaml");
+            Application.Current.Resources.MergedDictionaries[0] = darkThemeResource;
+
+        }
+
+        private void LightThemeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var lightThemeResource = new ResourceDictionary();
+            lightThemeResource.Source = new Uri("pack://application:,,,/ControlLibrary;component/Themes/Light.xaml");
+            Application.Current.Resources.MergedDictionaries[0] = lightThemeResource;
         }
     }
 }

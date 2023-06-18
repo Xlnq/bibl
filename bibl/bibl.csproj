@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ControlLibrary\ControlLibrary.csproj" />
     <ProjectReference Include="..\SerializationLibrary\SerializationLibrary.csproj" />
   </ItemGroup>
 

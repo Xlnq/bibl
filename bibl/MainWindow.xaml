@@ -6,10 +6,12 @@
         xmlns:local="clr-namespace:bibl"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="PeachPuff">
+    <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBox x:Name="dataTextBox" Width="200" Margin="0 0 0 10"/>
             <Button Content="Сереализация/Десереализация" Width="200" Click="Button_Click"/>
+            <Button Content="Тёмный" Width="200" Click="DarkThemeButton_Click"/>
+            <Button Content="Светлый" Width="200" Click="LightThemeButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>
